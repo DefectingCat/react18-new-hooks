@@ -1,12 +1,14 @@
-import { useState } from 'react';
+import classNames from 'classnames';
+import { useState, useTransition } from 'react';
 
 const UseTransition = () => {
   const [value, setValue] = useState(0);
   const [length, setLength] = useState(100000);
+  const [pending, setTransiton] = useTransition();
 
   const handleClick = () => {
     setValue((v) => v + 1);
-    setLength((l) => l + 1);
+    setTransiton(() => setLength((l) => l + 1));
   };
 
   return (
@@ -23,7 +25,12 @@ const UseTransition = () => {
           </button>
         </div>
 
-        <div className="flex flex-wrap">
+        <div
+          className={classNames(
+            'flex flex-wrap transition-all',
+            pending && 'opacity-50'
+          )}
+        >
           {Array.from({ length }).map((_, i) => (
             <div className="rounded-md shadow p-2 mr-2 mb-2" key={length - i}>
               {length - i}
