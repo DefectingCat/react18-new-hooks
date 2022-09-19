@@ -1,8 +1,26 @@
+import { lazy } from 'react';
+import { Link } from 'react-router-dom';
+
+const Card = lazy(() => import('components/Card'));
+
+const list = [
+  {
+    text: 'useTransition',
+    path: '/use-transition',
+  },
+];
+
 function App() {
   return (
-    <div className="App">
-      <div className="text-xl text-red-600">Hello world</div>
-    </div>
+    <>
+      <div className="p-4 flex">
+        {list.map((item) => (
+          <Card key={item.path}>
+            <Link to={item.path}>{item.text}</Link>
+          </Card>
+        ))}
+      </div>
+    </>
   );
 }
 

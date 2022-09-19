@@ -1,9 +1,10 @@
 import { lazy, Suspense } from 'react';
-import { createBrowserRouter } from 'react-router-dom';
+import { RouteObject } from 'react-router-dom';
 
 const App = lazy(() => import('App'));
+const UseTransition = lazy(() => import('pages/UseTransition'));
 
-const router = createBrowserRouter([
+const routes: RouteObject[] = [
   {
     path: '/',
     element: (
@@ -13,9 +14,13 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: 'about',
-    element: <div>About</div>,
+    path: '/use-transition',
+    element: (
+      <Suspense fallback>
+        <UseTransition />
+      </Suspense>
+    ),
   },
-]);
+];
 
-export default router;
+export default routes;
