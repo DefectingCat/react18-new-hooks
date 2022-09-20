@@ -3,12 +3,14 @@ import { useState, useTransition } from 'react';
 
 const UseTransition = () => {
   const [value, setValue] = useState(0);
+  const [value2, setValue2] = useState(-1);
   const [length, setLength] = useState(100000);
   const [pending, setTransiton] = useTransition();
 
   const handleClick = () => {
     setValue((v) => v + 1);
     setTransiton(() => setLength((l) => l + 1));
+    // setLength((l) => l + 1);
   };
 
   return (
@@ -19,9 +21,16 @@ const UseTransition = () => {
         <div className="my-4">
           <button
             onClick={handleClick}
-            className="rounded-md px-5 py-2 border focus:ring-4 transition-all"
+            className="rounded-md px-5 py-2 border focus:ring-4 transition-all mr-4"
           >
             {value}
+          </button>
+
+          <button
+            className="rounded-md px-5 py-2 border focus:ring-4 transition-all mr-4"
+            onClick={() => setValue2((v) => v - 1)}
+          >
+            {value2}
           </button>
         </div>
 
