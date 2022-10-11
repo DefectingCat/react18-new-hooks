@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import Button from 'components/Button';
 import { useDeferredValue, useState } from 'react';
 
 const UseDeferredValue = () => {
@@ -11,7 +12,15 @@ const UseDeferredValue = () => {
         <div className="text-xl">useDeferredValue</div>
 
         <div className="my-4">
-          <button></button>
+          <div>
+            Deferred:
+            <Button onClick={() => setValue((v) => v + 1)}>{deferred}</Button>
+          </div>
+
+          <div>
+            Primtive:
+            <Button onClick={() => setValue((v) => v + 1)}>{value}</Button>
+          </div>
         </div>
 
         <div className={classNames('flex flex-wrap transition-all')}>
