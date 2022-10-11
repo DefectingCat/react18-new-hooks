@@ -1,10 +1,15 @@
 import classNames from 'classnames';
 import Button from 'components/Button';
-import { useDeferredValue, useState } from 'react';
+import { DemoProps } from 'layouts/DemoLayout';
+import { useDeferredValue, useEffect, useState } from 'react';
 
-const UseDeferredValue = () => {
+const UseDeferredValue = ({ onLoad }: DemoProps) => {
   const [value, setValue] = useState(0);
   const deferred = useDeferredValue(value);
+
+  useEffect(() => {
+    onLoad?.();
+  }, []);
 
   return (
     <>

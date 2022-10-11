@@ -1,12 +1,17 @@
 import classNames from 'classnames';
 import Button from 'components/Button';
-import { useState, useTransition } from 'react';
+import { DemoProps } from 'layouts/DemoLayout';
+import { useEffect, useState, useTransition } from 'react';
 
-const UseTransition = () => {
+const UseTransition = ({ onLoad }: DemoProps) => {
   const [value, setValue] = useState(0);
   const [value2, setValue2] = useState(-1);
   const [length, setLength] = useState(100000);
   const [pending, setTransiton] = useTransition();
+
+  useEffect(() => {
+    onLoad?.();
+  }, []);
 
   const handleClick = () => {
     setValue((v) => v + 1);
