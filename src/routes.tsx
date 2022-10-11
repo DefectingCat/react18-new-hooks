@@ -6,17 +6,10 @@ const App = lazy(() => import('App'));
 const UseTransition = lazy(() => import('pages/UseTransition'));
 const UseDeferredValue = lazy(() => import('pages/UseDeferredValue'));
 
-const routes: RouteObject[] = [
-  {
-    path: '/',
-    element: (
-      <Suspense fallback>
-        <App />
-      </Suspense>
-    ),
-  },
+export const routePath = [
   {
     path: '/use-transition',
+    text: 'useTransition',
     element: (
       <DemoLayout title="useTransition">
         <Suspense fallback>
@@ -27,6 +20,7 @@ const routes: RouteObject[] = [
   },
   {
     path: '/use-deferred-value',
+    text: 'useDeferredValue',
     element: (
       <DemoLayout title="useDeferredValue">
         <Suspense fallback>
@@ -36,5 +30,16 @@ const routes: RouteObject[] = [
     ),
   },
 ];
+
+const routes: RouteObject[] = [
+  {
+    path: '/',
+    element: (
+      <Suspense fallback>
+        <App />
+      </Suspense>
+    ),
+  },
+].concat(routePath.map(({ path, element }) => ({ path, element })));
 
 export default routes;
