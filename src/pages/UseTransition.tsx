@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import Button from 'components/Button';
 import { useState, useTransition } from 'react';
 
 const UseTransition = () => {
@@ -19,19 +20,8 @@ const UseTransition = () => {
         <div className="text-xl">useTransition</div>
 
         <div className="my-4">
-          <button
-            onClick={handleClick}
-            className="rounded-md px-5 py-2 border focus:ring-4 transition-all mr-4"
-          >
-            {value}
-          </button>
-
-          <button
-            className="rounded-md px-5 py-2 border focus:ring-4 transition-all mr-4"
-            onClick={() => setValue2((v) => v - 1)}
-          >
-            {value2}
-          </button>
+          <Button onClick={handleClick}>{value}</Button>
+          <Button onClick={() => setValue2((v) => v - 1)}>{value2}</Button>
         </div>
 
         <div

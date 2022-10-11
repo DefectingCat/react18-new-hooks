@@ -8,6 +8,10 @@ const list = [
     text: 'useTransition',
     path: '/use-transition',
   },
+  {
+    text: 'useDeferredValue',
+    path: '/use-deferred-value',
+  },
 ];
 
 function App() {

@@ -3,6 +3,7 @@ import { RouteObject } from 'react-router-dom';
 
 const App = lazy(() => import('App'));
 const UseTransition = lazy(() => import('pages/UseTransition'));
+const UseDeferredValue = lazy(() => import('pages/UseDeferredValue'));
 
 const routes: RouteObject[] = [
   {
@@ -18,6 +19,14 @@ const routes: RouteObject[] = [
     element: (
       <Suspense fallback>
         <UseTransition />
+      </Suspense>
+    ),
+  },
+  {
+    path: '/use-deferred-value',
+    element: (
+      <Suspense fallback>
+        <UseDeferredValue />
       </Suspense>
     ),
   },
