@@ -1,3 +1,4 @@
+import DemoLayout from 'layouts/DemoLayout';
 import { lazy, Suspense } from 'react';
 import { RouteObject } from 'react-router-dom';
 
@@ -17,17 +18,21 @@ const routes: RouteObject[] = [
   {
     path: '/use-transition',
     element: (
-      <Suspense fallback>
-        <UseTransition />
-      </Suspense>
+      <DemoLayout title="useTransition">
+        <Suspense fallback>
+          <UseTransition />
+        </Suspense>
+      </DemoLayout>
     ),
   },
   {
     path: '/use-deferred-value',
     element: (
-      <Suspense fallback>
-        <UseDeferredValue />
-      </Suspense>
+      <DemoLayout title="useDeferredValue">
+        <Suspense fallback>
+          <UseDeferredValue />
+        </Suspense>
+      </DemoLayout>
     ),
   },
 ];

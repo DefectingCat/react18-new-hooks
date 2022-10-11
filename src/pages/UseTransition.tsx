@@ -16,26 +16,22 @@ const UseTransition = () => {
 
   return (
     <>
-      <div className="p-4 flex flex-col max-w-full">
-        <div className="text-xl">useTransition</div>
+      <div className="my-4">
+        <Button onClick={handleClick}>{value}</Button>
+        <Button onClick={() => setValue2((v) => v - 1)}>{value2}</Button>
+      </div>
 
-        <div className="my-4">
-          <Button onClick={handleClick}>{value}</Button>
-          <Button onClick={() => setValue2((v) => v - 1)}>{value2}</Button>
-        </div>
-
-        <div
-          className={classNames(
-            'flex flex-wrap transition-all',
-            pending && 'opacity-50'
-          )}
-        >
-          {Array.from({ length }).map((_, i) => (
-            <div className="rounded-md shadow p-2 mr-2 mb-2" key={length - i}>
-              {length - i}
-            </div>
-          ))}
-        </div>
+      <div
+        className={classNames(
+          'flex flex-wrap transition-all',
+          pending && 'opacity-50'
+        )}
+      >
+        {Array.from({ length }).map((_, i) => (
+          <div className="rounded-md shadow p-2 mr-2 mb-2" key={length - i}>
+            {length - i}
+          </div>
+        ))}
       </div>
     </>
   );
