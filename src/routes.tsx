@@ -5,6 +5,7 @@ import { RouteObject } from 'react-router-dom';
 const App = lazy(() => import('App'));
 const UseTransition = lazy(() => import('pages/UseTransition'));
 const UseDeferredValue = lazy(() => import('pages/UseDeferredValue'));
+const UseId = lazy(() => import('pages/UseId'));
 
 export const routePath = [
   {
@@ -25,6 +26,17 @@ export const routePath = [
       <DemoLayout title="useDeferredValue">
         <Suspense fallback>
           <UseDeferredValue />
+        </Suspense>
+      </DemoLayout>
+    ),
+  },
+  {
+    path: '/use-id',
+    text: 'useId',
+    element: (
+      <DemoLayout title="useId">
+        <Suspense fallback>
+          <UseId />
         </Suspense>
       </DemoLayout>
     ),
