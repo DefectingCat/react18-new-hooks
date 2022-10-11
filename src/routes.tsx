@@ -7,6 +7,7 @@ const UseTransition = lazy(() => import('pages/UseTransition'));
 const UseDeferredValue = lazy(() => import('pages/UseDeferredValue'));
 const UseId = lazy(() => import('pages/UseId'));
 const UseSyncExternalStore = lazy(() => import('pages/UseSyncExternalStore'));
+const UseInsertionEffect = lazy(() => import('pages/UseInsertionEffect'));
 
 export const routePath = [
   {
@@ -49,6 +50,18 @@ export const routePath = [
       <DemoLayout title="useSyncExternalStore">
         <Suspense fallback>
           <UseSyncExternalStore />
+        </Suspense>
+      </DemoLayout>
+    ),
+  },
+
+  {
+    path: '/use-insertion-effect',
+    text: 'useInsertionEffect',
+    element: (
+      <DemoLayout title="useInsertionEffect">
+        <Suspense fallback>
+          <UseInsertionEffect />
         </Suspense>
       </DemoLayout>
     ),
