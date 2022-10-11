@@ -6,6 +6,7 @@ const App = lazy(() => import('App'));
 const UseTransition = lazy(() => import('pages/UseTransition'));
 const UseDeferredValue = lazy(() => import('pages/UseDeferredValue'));
 const UseId = lazy(() => import('pages/UseId'));
+const UseSyncExternalStore = lazy(() => import('pages/UseSyncExternalStore'));
 
 export const routePath = [
   {
@@ -37,6 +38,17 @@ export const routePath = [
       <DemoLayout title="useId">
         <Suspense fallback>
           <UseId />
+        </Suspense>
+      </DemoLayout>
+    ),
+  },
+  {
+    path: '/use-sync-external-store',
+    text: 'useSyncExternalStore',
+    element: (
+      <DemoLayout title="useSyncExternalStore">
+        <Suspense fallback>
+          <UseSyncExternalStore />
         </Suspense>
       </DemoLayout>
     ),
